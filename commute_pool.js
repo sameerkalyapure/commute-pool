@@ -104,6 +104,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+// =========================
+// OFFER A RIDE FUNCTIONALITY
+// =========================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const offerForm = document.getElementById("offer-ride-form");
+    const offerResults = document.getElementById("offer-ride-results");
+
+    if (offerForm && offerResults) {
+
+        offerForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const pickup = document.getElementById("offer-pickup").value.trim();
+            const destination = document.getElementById("offer-destination").value.trim();
+            const date = document.getElementById("offer-date").value;
+            const time = document.getElementById("offer-time").value;
+            const seats = document.getElementById("offer-seats").value;
+            const fare = document.getElementById("offer-fare").value;
+
+            offerResults.innerHTML = `
+                <div class="ride-card">
+                    <h3>Sample Listing Created Successfully!</h3>
+
+                    <p><strong>Pickup:</strong> ${pickup}</p>
+                    <p><strong>Destination:</strong> ${destination}</p>
+                    <p><strong>Travel Date:</strong> ${date}</p>
+                    <p><strong>Departure Time:</strong> ${time}</p>
+                    <p><strong>Available Seats:</strong> ${seats}</p>
+                    <p><strong>Estimated Share:</strong> ₹${fare}</p>
+
+                    <p><small>Fictional sample listing for prototype testing only.</small></p>
+                </div>
+            `;
+
+            offerForm.reset();
+
+        });
+
+    }
+
+});
 
 
 // MOBILE DASHBOARD DROPDOWN
