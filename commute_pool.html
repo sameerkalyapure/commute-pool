@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Commute Pool | Student Ride Sharing</title>
+
+    <link rel="stylesheet" href="commute_pool.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header class="navbar">
+        <a href="#home" class="logo">
+            <span class="logo-icon">CP</span>
+            Commute Pool
+        </a>
+
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="dropdown-toggle">
+                        Dashboard ▾
+                    </a>
+
+                    <ul class="dropdown-menu">
+                        <li><a href="#dashboard">Student Dashboard</a></li>
+                        <li><a href="#admin-dashboard">Admin Dashboard</a></li>
+                    </ul>
+                </li>
+                <li><a href="#safety">Safety</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+
+        <a href="#login" class="nav-login login-btn">Login</a>
+    </header>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <span class="hero-label">SMARTER STUDENT COMMUTING</span>
+
+            <h1>
+                Share the Ride.<br>
+                <span>Save the Cost.</span><br>
+                Travel Together.
+            </h1>
+
+            <p class="hero-description">
+                Connect with students travelling on similar routes.
+                Share available seats and make your daily commute
+                more convenient and affordable.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#find-ride" class="btn-primary">Find a Ride</a>
+                <a href="#offer-ride" class="btn-secondary">Offer a Ride</a>
+            </div>
+
+            <div class="hero-note">
+                Designed for smarter student commuting.
+            </div>
+
+        </div>
+
+        <div class="hero-visual">
+
+            <div class="travel-card">
+
+                <div class="travel-top">
+                    <span class="travel-tag">STUDENT COMMUTE</span>
+                    <span class="travel-symbol">↗</span>
+                </div>
+
+                <div class="route">
+                    <div class="route-point">
+                        <span class="dot dot-blue"></span>
+                        <div>
+                            <small>STARTING POINT</small>
+                            <h3>Your Location</h3>
+                        </div>
+                    </div>
+
+                    <div class="route-line"></div>
+
+                    <div class="route-point">
+                        <span class="dot dot-green"></span>
+                        <div>
+                            <small>DESTINATION</small>
+                            <h3>Your College</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="car-illustration">
+                    🚘
+                </div>
+
+                <div class="travel-bottom">
+                    <div>
+                        <small>TRAVEL TOGETHER</small>
+                        <h3>Better journeys</h3>
+                    </div>
+                    <span class="bottom-icon">✦</span>
+                </div>
+
+            </div>
+
+            <div class="floating-card">
+                <span>✦</span>
+                Shared journeys, smarter choices
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Find a Ride Section -->
+    <section class="find-ride-section" id="find-ride">
+
+        <div class="find-ride-container">
+
+            <div class="section-heading">
+                <span class="section-label">FIND YOUR JOURNEY</span>
+                <h2>Find a Ride</h2>
+                <p>Search for students travelling on similar routes.</p>
+            </div>
+
+            <form id="ride-search-form" class="ride-search-form">
+
+                <div class="form-group">
+                    <label for="pickup">Pickup Location</label>
+                    <input type="text" id="pickup" placeholder="Enter pickup location" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="destination">Destination</label>
+                    <input type="text" id="destination" placeholder="Enter destination" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="travel-date">Travel Date</label>
+                    <input type="date" id="travel-date" required>
+                </div>
+
+                <button type="submit" class="search-btn">
+                    Search Rides
+                </button>
+
+            </form>
+
+            <div id="ride-results" class="ride-results"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Offer a Ride Section -->
+    <section class="offer-ride-section" id="offer-ride">
+
+        <div class="find-ride-container">
+
+            <div class="section-heading">
+                <span class="section-label">SHARE YOUR JOURNEY</span>
+                <h2>Offer a Ride</h2>
+                <p>Create a sample ride listing for our prototype.</p>
+            </div>
+
+            <form id="offer-ride-form" class="offer-ride-form">
+
+                <div class="form-group">
+                    <label for="offer-pickup">Pickup Location</label>
+                    <input type="text" id="offer-pickup" placeholder="Enter pickup location" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="offer-destination">Destination</label>
+                    <input type="text" id="offer-destination" placeholder="Enter destination" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="offer-date">Travel Date</label>
+                    <input type="date" id="offer-date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="offer-time">Departure Time</label>
+                    <input type="time" id="offer-time" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="offer-seats">Available Seats</label>
+                    <input type="number" id="offer-seats" min="1" max="6" placeholder="Number of seats" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="offer-fare">Estimated Share (₹)</label>
+                    <input type="number" id="offer-fare" min="1" placeholder="Cost per passenger" required>
+                </div>
+
+                <button type="submit" class="search-btn">
+                    Create Sample Listing
+                </button>
+
+            </form>
+
+            <div id="offer-ride-results" class="ride-results"></div>
+
+            <p class="prototype-note">
+                Prototype only: listings are not published and cannot be used to arrange actual travel.
+            </p>
+
+        </div>
+
+    </section>
+
+    <section class="how-section" id="how-it-works">
+
+        <div class="section-heading">
+            <span class="section-label">SIMPLE & CONVENIENT</span>
+            <h2>How Commute Pool Works</h2>
+            <p>Getting started takes just three simple steps.</p>
+        </div>
+
+        <div class="steps-container">
+
+            <div class="step-card">
+                <div class="step-number">01</div>
+                <div class="step-icon">👤</div>
+                <h3>Create Your Profile</h3>
+                <p>
+                    Create your student profile to get started
+                    with the platform.
+                </p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">02</div>
+                <div class="step-icon">🔍</div>
+                <h3>Find or Offer a Ride</h3>
+                <p>
+                    Search available rides or share your
+                    journey with other students.
+                </p>
+            </div>
+
+            <div class="step-card">
+                <div class="step-number">03</div>
+                <div class="step-icon">🤝</div>
+                <h3>Coordinate Your Journey</h3>
+                <p>
+                    Connect with fellow students and coordinate
+                    your travel plans.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Student Dashboard Section -->
+    <section class="dashboard-section" id="dashboard">
+
+        <div class="dashboard-container">
+
+            <div class="dashboard-header">
+                <div>
+                    <span class="section-label">STUDENT OVERVIEW</span>
+                    <h2>Student Dashboard</h2>
+                    <p>Welcome to your Commute Pool dashboard.</p>
+                </div>
+            </div>
+
+            <div class="dashboard-cards">
+
+                <div class="dashboard-card">
+                    <div class="dashboard-icon">🚘</div>
+                    <h3>2</h3>
+                    <p>Sample Rides</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="dashboard-icon">👥</div>
+                    <h3>4</h3>
+                    <p>Sample Seats</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="dashboard-icon">💰</div>
+                    <h3>₹240</h3>
+                    <p>Demo Cost Sharing</p>
+                </div>
+
+            </div>
+
+            <div class="dashboard-activity">
+
+                <h3>Recent Activity</h3>
+
+                <div class="activity-item">
+                    <span>🔍</span>
+                    <div>
+                        <strong>Ride Search</strong>
+                        <p>Sample route search performed</p>
+                    </div>
+                </div>
+
+                <div class="activity-item">
+                    <span>🚗</span>
+                    <div>
+                        <strong>Ride Listing</strong>
+                        <p>Sample ride listing created</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="dashboard-actions">
+                <a href="#find-ride" class="btn-primary">Find a Ride</a>
+                <a href="#offer-ride" class="btn-secondary">Offer a Ride</a>
+            </div>
+
+            <p class="prototype-note">
+                Demonstration dashboard with fictional data.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Admin Dashboard Section -->
+    <section class="admin-section" id="admin-dashboard">
+        <span class="section-label">SYSTEM OVERVIEW</span>
+        <h2>Admin Dashboard</h2>
+        <p class="admin-description">
+            A visual overview of the COMMUTE POOL demo system.
+        </p>
+
+        <div class="admin-cards">
+            <div class="admin-card">
+                <h3>Demo Users</h3>
+                <p class="admin-number">24</p>
+                <span>Sample data</span>
+            </div>
+
+            <div class="admin-card">
+                <h3>Sample Rides</h3>
+                <p class="admin-number">12</p>
+                <span>Sample data</span>
+            </div>
+
+            <div class="admin-card">
+                <h3>Demo Requests</h3>
+                <p class="admin-number">8</p>
+                <span>Sample data</span>
+            </div>
+
+            <div class="admin-card">
+                <h3>System Status</h3>
+                <p class="admin-status">Demo Mode</p>
+                <span>No real data connected</span>
+            </div>
+        </div>
+
+        <p class="prototype-note">
+            Admin dashboard using fictional data only.
+        </p>
+    </section>
+
+    <!-- Safety Guidelines Section -->
+    <section class="safety-section" id="safety">
+        <span class="section-label">TRAVEL RESPONSIBLY</span>
+        <h2>Safety Guidelines</h2>
+        <p class="safety-intro">
+            Safety and responsible travel should always come first.
+        </p>
+
+        <div class="safety-grid">
+            <div class="safety-card">
+                <h3>01. Verify Information</h3>
+                <p>Always verify relevant information through trusted and approved channels.</p>
+            </div>
+
+            <div class="safety-card">
+                <h3>02. Protect Privacy</h3>
+                <p>Never share passwords, private contact details or sensitive personal information publicly.</p>
+            </div>
+
+            <div class="safety-card">
+                <h3>03. Follow Guidelines</h3>
+                <p>Follow institutional rules and seek guidance from responsible adults.</p>
+            </div>
+
+            <div class="safety-card">
+                <h3>04. Emergency Support</h3>
+                <p>In an emergency, contact local emergency services or a trusted adult.</p>
+            </div>
+        </div>
+
+        <p class="prototype-note">
+            This project is a frontend demonstration and does not arrange actual transportation.
+        </p>
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits-section" id="benefits">
+
+        <div class="section-heading">
+            <span class="section-label">WHY COMMUTE POOL?</span>
+            <h2>Travel Smarter Together</h2>
+            <p>Making student commuting more collaborative.</p>
+        </div>
+
+        <div class="benefits-container">
+
+            <div class="benefit-card">
+                <div class="benefit-icon">₹</div>
+                <h3>Share Travel Costs</h3>
+                <p>
+                    Sharing journeys can help students
+                    reduce individual travel expenses.
+                </p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">⌚</div>
+                <h3>Better Coordination</h3>
+                <p>
+                    Find students travelling on similar
+                    routes and at similar times.
+                </p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-icon">♻</div>
+                <h3>Efficient Travel</h3>
+                <p>
+                    Make better use of available vehicle
+                    seats through shared journeys.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- About Us Section -->
+    <section class="about-section" id="about">
+
+        <span class="section-label">WHO WE ARE</span>
+        <h2>About COMMUTE POOL</h2>
+
+        <p>
+            COMMUTE POOL is a student-focused ride-sharing concept
+            designed to explore smarter and more economical commuting.
+        </p>
+
+        <p>
+            This project demonstrates how technology can help users
+            understand ride-sharing concepts through a simple website interface.
+        </p>
+
+        <h3>Our Vision</h3>
+        <p>
+            To explore convenient, economical and responsible
+            transportation solutions through technology.
+        </p>
+
+    </section>
+
+    <!-- Demo Login Section -->
+    <section class="login-section" id="login">
+
+        <div class="login-container">
+
+            <span class="section-label">STUDENT ACCESS</span>
+            <h2>Student Login</h2>
+            <p>Explore the demo login interface.</p>
+
+            <form id="demo-login-form"
+                onsubmit="event.preventDefault(); document.getElementById('login-message').textContent='Demo only: Authentication is not connected yet.'; return false;">
+
+                <div class="form-group">
+                    <label for="demo-email">Student Email</label>
+                    <input type="email" id="demo-email" placeholder="demo@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="demo-password">Password</label>
+                    <input type="password" id="demo-password" placeholder="Demo password" required>
+                </div>
+
+                <button type="submit" class="search-btn">
+                    Demo Login
+                </button>
+
+            </form>
+
+            <p id="login-message"></p>
+
+            <p class="prototype-note">
+                Demo interface only. Do not enter real credentials.
+            </p>
+
+        </div>
+
+    </section>
+
+    <script src="commute_pool.js"></script>
+
+</body>
+
+</html>
+
+<!-- Footer -->
+<footer class="footer">
+
+    <div class="footer-content">
+        <h2>Commute Pool</h2>
+        <p>Share the Ride. Save the Cost. Travel Together.</p>
+    </div>
+
+    <div class="footer-bottom">
+        Design Thinking and Innovation Lab Project
+        <br>
+        © 2026 Commute Pool
+    </div>
+
+</footer>
+
+
+<script src="commute_pool.js"></script>
+</body>
+
+</html>
